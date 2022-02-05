@@ -12,8 +12,7 @@ struct SectionContactListView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(sectionPerson) { personContact in
+            List(sectionPerson) { personContact in
                     Section(header: Text(personContact.fullName)) {
                         DetailInfoRowView(
                             info: personContact.phoneNumber,
@@ -28,7 +27,7 @@ struct SectionContactListView: View {
             .navigationTitle("Contact List")
         }
     }
-}
+
                             
 struct SectionContactListView_Previews: PreviewProvider {
     static var previews: some View {

@@ -14,7 +14,7 @@ struct PersonsListView: View {
         NavigationView {
             List(persons) { personList in
                 NavigationLink(destination: ContactListInfoView(contact: personList)) {
-                    Text("\(personList.fullName)")
+                    Text(personList.fullName)
                 }
             }
             .listStyle(.plain)
