@@ -1,5 +1,5 @@
 //
-//  PersonsList.swift
+//  Person.swift
 //  Home Work 3.5. Lists
 //
 //  Created by Ирина on 03.02.2022.
@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-class Person: Identifiable {
+struct Person: Identifiable {
+    let id = UUID()
+    
     let name: String
     let surname: String
     let phoneNumber: String
@@ -15,14 +17,6 @@ class Person: Identifiable {
     
     var fullName: String {
         "\(name) \(surname)"
-    }
-    init(name: String, surname: String, phoneNumber: String, email: String) {
-        self.name = name
-        self.surname = surname
-        self.phoneNumber = phoneNumber
-        self.email = email
-        
-        
     }
 }
 

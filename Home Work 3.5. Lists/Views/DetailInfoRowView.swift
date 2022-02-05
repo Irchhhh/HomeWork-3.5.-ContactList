@@ -8,24 +8,23 @@
 import SwiftUI
 
 struct DetailInfoRowView: View {
-    let title: String
+    let info: String
     let icon: String
     
     var body: some View {
         HStack {
             Image(systemName: icon)
                 .foregroundColor(.blue)
-            Text(title)
+            Text(info)
         }
-        
     }
 }
 struct DetailInfoRowView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailInfoRowView(title: "898009", icon: "phone")
+        DetailInfoRowView(info: "898009", icon: "phone")
     }
 }
-
+//MARK: - ImageView
 struct ImagePerson: View {
     var body: some View {
         HStack {
@@ -36,7 +35,6 @@ struct ImagePerson: View {
                 .frame(width: 100, height: 100)
                 .padding()
             Spacer()
-            
         }
     }
 }

@@ -8,13 +8,30 @@
 import SwiftUI
 
 struct SectionContactListView: View {
+    let sectionPerson: [Person]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List {
+                ForEach(sectionPerson) { personContact in
+                    Section(header: Text(personContact.fullName)) {
+                        DetailInfoRowView(
+                            info: personContact.phoneNumber,
+                            icon: "phone"
+                        )
+                        DetailInfoRowView(
+                            info: personContact.email,
+                            icon: "envelope.open")
+                    }
+                }
+            }
+            .navigationTitle("Contact List")
+        }
     }
 }
-
+                            
 struct SectionContactListView_Previews: PreviewProvider {
     static var previews: some View {
-        SectionContactListView()
+        SectionContactListView(sectionPerson: Person.getPersonsList())
     }
 }

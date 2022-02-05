@@ -8,24 +8,26 @@
 import SwiftUI
 
 struct ContactListInfoView: View {
-    let contactListInfo: PersonsList
+    let contact: Person
+    
     var body: some View {
-        
         NavigationView {
             List {
                 ImagePerson()
                 DetailInfoRowView(
-                    title: contactListInfo.phoneNumber,
+                    info: contact.phoneNumber,
                     icon: "phone"
                 )
+                DetailInfoRowView(
+                    info: contact.email, icon: "envelope.open")
             }
             .listStyle(GroupedListStyle())
-            .navigationTitle("\(contactListInfo.fullName)")
+            .navigationTitle("\(contact.fullName)")
         }
     }
 }
 struct ContactListInfo_Previews: PreviewProvider {
     static var previews: some View {
-        ContactListInfoView(contactListInfo: PersonsList.getPersonsList().first!)
+        ContactListInfoView(contact: Person.getPersonsList()[0])
     }
 }

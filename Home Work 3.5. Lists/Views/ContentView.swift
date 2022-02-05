@@ -6,14 +6,24 @@
 //
 
 import SwiftUI
-let personList = PersonsList.getPersonsList()
 struct ContentView: View {
+    private let person = Person.getPersonsList()
+    
     var body: some View {
-        PersonsListView(personsList: personList)
-        
+        TabView {
+            PersonsListView(persons: person)
+                .tabItem {
+                    Image(systemName: "person.2.fill")
+                    Text("Contacts")
+                }
+            SectionContactListView(sectionPerson: person)
+                .tabItem {
+                    Image(systemName: "phone")
+                    Text("Numbers")
+            }
+        }
     }
 }
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
