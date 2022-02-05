@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
-
+let personList = PersonsList.getPersonsList()
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        PersonsListView(personsList: personList)
+        
     }
 }
 
